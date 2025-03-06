@@ -11,4 +11,30 @@ pageProvider.getModalPage().openModalWindow();
 pageProvider.getModalPage().clickOnButtonCloseModalWindow();
 pageProvider.getModalPage().checkIsModalWindowDisplayed();
     }
+
+    @Test
+    public void T002_selectCountryLanguageModalWindowToAccessSite() {
+        pageProvider.getModalPage().openModalWindow();
+        pageProvider.getModalPage().clickOnDDCountry();
+        pageProvider.getModalPage().selectCountry("France");
+        pageProvider.getModalPage().clickOnDDLanguage();
+        pageProvider.getModalPage().selectLanguage("Français");
+        pageProvider.getModalPage().clickOnButtonEnterSite();
+        pageProvider.getHomePage().checkIsCountryHeaderFranceDisplayed();
+        pageProvider.getHomePage().checkIsLanguageHeaderFrenchDisplayed();
+
+    }
+
+    @Test
+    public void T003_selectCountryNotLocalLanguageModalWindowToAccessSite() {
+        pageProvider.getModalPage().openModalWindow();
+        pageProvider.getModalPage().clickOnDDCountry();
+        pageProvider.getModalPage().selectCountry("Ukraine");
+        pageProvider.getModalPage().clickOnDDLanguage();
+        pageProvider.getModalPage().selectLanguage("English");
+        pageProvider.getModalPage().clickOnButtonEnterSite();
+        pageProvider.getHomePage().checkIsCountryHeaderUkraineDisplayed();
+        pageProvider.getHomePage().checkIsLanguageHeaderEnglishDisplayed();
+
+    }
 }
