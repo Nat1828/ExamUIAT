@@ -63,6 +63,14 @@ public class CommonActionsWithElements {
         }
     }
 
+    public void enterTextIntoInputLogin(WebElement inputLogin, String mail) {
+        clearAndEnterTextIntoElement(inputLogin, mail);
+    }
+    
+    public void enterTextIntoInputPassword(WebElement inputPassword, String password) {
+        clearAndEnterTextIntoElement(inputPassword, password);
+    }
+
     private String getElementName(WebElement webElement) {
         String elementName = "";
         try {

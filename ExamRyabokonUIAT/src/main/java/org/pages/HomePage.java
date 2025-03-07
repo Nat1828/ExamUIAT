@@ -20,6 +20,12 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = "//div[@class='top-bar-list-icon language-flag country-gb language-en']")
     private WebElement headerLanguageEnglish;
 
+    @FindBy(xpath = "//span[@class='icon icon-avatar']")
+    private WebElement userAvatarButton;
+
+    @FindBy(xpath = "//a[@href='/account/login' and @class='btn btn-primary account-menu-login-button']")
+    private WebElement buttonSignInDD;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -51,5 +57,15 @@ public class HomePage extends ParentPage {
         headerLanguageEnglish.isDisplayed();
         logger.info("Language header English is displayed.");
 
+    }
+
+    public void clickOnUserAvatarButton() {
+        userAvatarButton.click();
+        logger.info("User avatar button was clicked.");
+    }
+
+    public void clickOnButtonSignInDD() {
+        buttonSignInDD.click();
+        logger.info("Sign In button was clicked.");
     }
 }
