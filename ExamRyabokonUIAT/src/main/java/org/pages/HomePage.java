@@ -37,6 +37,10 @@ public class HomePage extends ParentPage {
 
     }
 
+    public HomePage checkIsRedirectToHomePage() {
+        return this;
+    }
+
     public void checkIsCountryHeaderFranceDisplayed() {
         headerCountryFrance.isDisplayed();
         logger.info("Country header France is displayed.");

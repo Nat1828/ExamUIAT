@@ -24,8 +24,14 @@ public class LoginPage extends ParentPage {
         super(webDriver);
     }
 
+    public LoginPage checkIsRedirectToLoginPage() {
+        //check current URL
+        return this;
+    }
+
     public void enterTextIntoInputLogin(String mail) {
-        enterTextIntoInputLogin(inputLogin, mail);;
+        enterTextIntoInputLogin(inputLogin, mail);
+        ;
     }
 
     public void enterTextIntoInputPassword(String password) {

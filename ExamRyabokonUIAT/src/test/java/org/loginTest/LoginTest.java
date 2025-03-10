@@ -14,6 +14,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.data.TestData.*;
+
 public class LoginTest extends BaseTest {
 
     @Test
@@ -23,8 +25,9 @@ public class LoginTest extends BaseTest {
         pageProvider.getModalPage().checkIsModalWindowDisplayed();
         pageProvider.getHomePage().clickOnUserAvatarButton();
         pageProvider.getHomePage().clickOnButtonSignInDD();
-        pageProvider.getLoginPage().enterTextIntoInputLogin("natalkar2000@yahoo.com");
-        pageProvider.getLoginPage().enterTextIntoInputPassword("nata2000");
+        pageProvider.getLoginPage().checkIsRedirectToLoginPage();
+        pageProvider.getLoginPage().enterTextIntoInputLogin(VALID_LOGIN);
+        pageProvider.getLoginPage().enterTextIntoInputPassword(VALID_PASSWORD);
         pageProvider.getLoginPage().clickOnButtonLogIn();
         pageProvider.getProfilePage().checkIsRedirectToProfilePage();
         pageProvider.getProfilePage().checkButtonSignOutVisible();
@@ -38,8 +41,24 @@ public class LoginTest extends BaseTest {
         pageProvider.getModalPage().checkIsModalWindowDisplayed();
         pageProvider.getHomePage().clickOnUserAvatarButton();
         pageProvider.getHomePage().clickOnButtonSignInDD();
-        pageProvider.getLoginPage().enterTextIntoInputLogin("2000@yahoo.com");
-        pageProvider.getLoginPage().enterTextIntoInputPassword("nata2000");
+        pageProvider.getLoginPage().checkIsRedirectToLoginPage();
+        pageProvider.getLoginPage().enterTextIntoInputLogin(INVALID_LOGIN);
+        pageProvider.getLoginPage().enterTextIntoInputPassword(VALID_PASSWORD);
+        pageProvider.getLoginPage().clickOnButtonLogIn();
+        pageProvider.getLoginPage().checkAlarmMessageisDisplayed();
+
+    }
+
+    @Test
+    public void T006_invalidPassword() {
+        pageProvider.getModalPage().openModalWindow();
+        pageProvider.getModalPage().clickOnButtonCloseModalWindow();
+        pageProvider.getModalPage().checkIsModalWindowDisplayed();
+        pageProvider.getHomePage().clickOnUserAvatarButton();
+        pageProvider.getHomePage().clickOnButtonSignInDD();
+        pageProvider.getLoginPage().checkIsRedirectToLoginPage();
+        pageProvider.getLoginPage().enterTextIntoInputLogin(VALID_LOGIN);
+        pageProvider.getLoginPage().enterTextIntoInputPassword(INVALID_PASSWORD);
         pageProvider.getLoginPage().clickOnButtonLogIn();
         pageProvider.getLoginPage().checkAlarmMessageisDisplayed();
 

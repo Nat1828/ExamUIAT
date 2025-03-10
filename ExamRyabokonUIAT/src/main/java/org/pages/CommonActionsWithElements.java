@@ -57,7 +57,7 @@ public class CommonActionsWithElements {
         try {
             webElement.clear();
             webElement.sendKeys(text);
-            logger.info(text + " was input into element" + getElementName(webElement));
+            logger.info(text + " was input into element " + getElementName(webElement));
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
@@ -66,7 +66,7 @@ public class CommonActionsWithElements {
     public void enterTextIntoInputLogin(WebElement inputLogin, String mail) {
         clearAndEnterTextIntoElement(inputLogin, mail);
     }
-    
+
     public void enterTextIntoInputPassword(WebElement inputPassword, String password) {
         clearAndEnterTextIntoElement(inputPassword, password);
     }
@@ -88,7 +88,7 @@ public class CommonActionsWithElements {
             webDriverWait10.until(ExpectedConditions.elementToBeClickable(webElement));
             String elementName = getElementName(webElement);
             webElement.click();
-            logger.info(elementName + "Element was clicked");
+            logger.info(elementName + " Element was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
@@ -99,9 +99,9 @@ public class CommonActionsWithElements {
         try {
             webDriverWait10.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
-            logger.info(elementName + "Element was clicked");
+            logger.info(elementName + " Element was clicked");
         } catch (Exception e) {
-            logger.error("Cannot work with element " + elementName);
+            logger.error(" Cannot work with element " + elementName);
             printErrorAndStopTest(e);
         }
     }
@@ -112,7 +112,7 @@ public class CommonActionsWithElements {
         try {
             return isElementVisible(webDriver.findElement(By.xpath(locator)));
         } catch (Exception e) {
-            logger.info("Element is not found");
+            logger.info(" Element is not found");
             return false;
         }
     }
@@ -122,13 +122,13 @@ public class CommonActionsWithElements {
         try {
             boolean state = webElement.isDisplayed();
             if (state) {
-                logger.info(getElementName(webElement) + "Element is visible");
+                logger.info(getElementName(webElement) + " Element is visible");
             } else {
-                logger.info(getElementName(webElement) + "Element is not visible");
+                logger.info(getElementName(webElement) + " Element is not visible");
             }
             return state;
         } catch (Exception e) {
-            logger.info(getElementName(webElement) + "Element is not found");
+            logger.info(getElementName(webElement) + " Element is not found");
             return false;
         }
     }
@@ -139,12 +139,12 @@ public class CommonActionsWithElements {
     }
 
     protected void checkIsElementVisible(String locator) {
-        Assert.assertTrue("Element is not visible", isElementVisible(locator));
+        Assert.assertTrue(" Element is not visible", isElementVisible(locator));
     }
 //check Text in Element
 
     protected void checkTextInElement(WebElement webElement, String text) {
-        Assert.assertEquals("Text in element" + getElementName(webElement) + "is not expected", text, webElement.getText());
+        Assert.assertEquals(" Text in element " + getElementName(webElement) + "is not expected", text, webElement.getText());
         logger.info("Text in element is expected");
     }
 
@@ -217,22 +217,8 @@ public class CommonActionsWithElements {
         }
     }
 
-    public void switchToNewTab(int tabIndex) {
-        ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
-        webDriver.switchTo().window(tabs.get(tabIndex));
-    }
 
-    public void switchToMainTab(int tabIndex) {
-        ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
-        webDriver.switchTo().window(tabs.get(tabIndex));
-    }
 
-    public void closeCurrentTab() {
-        logger.info("Current tab is cloosed.");
-        webDriver.close();
-        ;
-
-    }
 }
 
 

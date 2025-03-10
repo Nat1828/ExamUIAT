@@ -20,6 +20,7 @@ pageProvider.getModalPage().checkIsModalWindowDisplayed();
         pageProvider.getModalPage().clickOnDDLanguage();
         pageProvider.getModalPage().selectLanguage("Français");
         pageProvider.getModalPage().clickOnButtonEnterSite();
+        pageProvider.getHomePage().checkIsRedirectToHomePage();
         pageProvider.getHomePage().checkIsCountryHeaderFranceDisplayed();
         pageProvider.getHomePage().checkIsLanguageHeaderFrenchDisplayed();
 
@@ -33,6 +34,7 @@ pageProvider.getModalPage().checkIsModalWindowDisplayed();
         pageProvider.getModalPage().clickOnDDLanguage();
         pageProvider.getModalPage().selectLanguage("English");
         pageProvider.getModalPage().clickOnButtonEnterSite();
+        pageProvider.getHomePage().checkIsRedirectToHomePage();
         pageProvider.getHomePage().checkIsCountryHeaderUkraineDisplayed();
         pageProvider.getHomePage().checkIsLanguageHeaderEnglishDisplayed();
 

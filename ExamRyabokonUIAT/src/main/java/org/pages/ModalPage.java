@@ -22,7 +22,7 @@ public class ModalPage extends ParentPage {
     @FindBy(xpath = "//select[@id='languageSelect']")
     private WebElement ddLanguage;
 
-    @FindBy(xpath ="//button[@onclick='saveUserOptions()']")
+    @FindBy(xpath = "//button[@onclick='saveUserOptions()']")
     private WebElement buttonEnterSite;
 
     public ModalPage(WebDriver webDriver) {
@@ -30,21 +30,19 @@ public class ModalPage extends ParentPage {
     }
 
     public void openModalWindow() {
-        String baseURL = "https://isqi.org";
         webDriver.get(baseURL);
         logger.info("Modal window was opened." + baseURL);
 
     }
 
-
     public void clickOnButtonCloseModalWindow() {
         buttonCloseModalWindow.click();
-    logger.info("Modal window was closed.");
+        logger.info("Modal window was closed.");
     }
 
-public void checkIsModalWindowDisplayed(){
+    public void checkIsModalWindowDisplayed() {
         Assert.assertFalse("Modal window is not displayed", isModalWindowDisplayed());
-}
+    }
 
     public boolean isModalWindowDisplayed() {
         try {

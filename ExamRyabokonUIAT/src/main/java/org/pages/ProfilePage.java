@@ -5,11 +5,11 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProfilePage extends ParentPage{
-Logger logger = Logger.getLogger(getClass());
+public class ProfilePage extends ParentPage {
+    Logger logger = Logger.getLogger(getClass());
 
-@FindBy(xpath = "//div[@class='account-aside']//a[@href='/account/logout']")
-private WebElement buttonSignOut;
+    @FindBy(xpath = "//div[@class='account-aside']//a[@href='/account/logout']")
+    private WebElement buttonSignOut;
 
     public ProfilePage(WebDriver webDriver) {
         super(webDriver);
