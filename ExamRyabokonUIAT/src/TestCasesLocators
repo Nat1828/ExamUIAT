@@ -1,0 +1,184 @@
+UI Automation Testing Exam
+
+001 Test Case. When closing the modal windoow the user is redirected to the home page
+Preconditions:
+1. Open https://isqi.org/ website
+2. Modal window is visible : .//div[@class="modal-content sus-modal-content"]
+Steps to reproduce:
+1. Click on the button Close: .//button[@class="sus-close"]
+2. Check Modal Windoow is not visible: .//div[@class="modal-content sus-modal-content"]
+
+PostCondition
+Close website
+
+
+
+002.	Test Case
+When selecting  county, language in the modal window the selected language and country are visible on the header.
+Preconditions:
+1.      Open https://isqi.org/ website
+2.      Modal window is visible : .//div[@class="modal-content sus-modal-content"]
+Steps to reproduce:
+1.      Choose country “France” from the Dropdown list : Select Country //*[@id="countrySelect"], France //*[@id="countrySelect"]/option[76]
+2.      Choose language “French” : Select Language //select[@id="languageSelect"]
+//*[@id="language_value" and @value="e5c1db7f238549dc9d67023d4a2ff327"]
+3.      Click button Enter: .//button[@onclick="saveUserOptions()"]
+4.      Check Element Country “France” in the Header is visible: //*[@id="countrySelectTopBar"]/option[69]
+5.      Check element flag language “French” in the Header is Visible: //*[@id='languagesDropdown-top-bar']/div
+PostCondition
+Close website
+
+003.	Test Case
+Selecting  county, language in the modal window that don’t match actual localisation and the selected language and country are visible on the header.
+Preconditions:
+1.     Open https://isqi.org/ website
+2.     Modal window is visible : .//div[@class="modal-content sus-modal-content"]
+Steps to reproduce:
+1. Choose country “Ukraine” from the Dropdown list : Select Country //*[@id="countrySelect"], Ukraine //*[@id="countrySelect"]/option[233]
+2.      Choose language “English” : Select Language //select[@id="languageSelect"]
+3.      //*[@id="language_value" and @value="2fbb5fe2e29a4d70aa5854ce7ce3e20b"]
+
+4.      Click button Enter: .//button[@onclick="saveUserOptions()"]
+5.      Check Element Country “Ukraine” in the Header is visible: //*[@id="countrySelectTopBar"]/option[234]
+6.      Check element  “English” language in the Header is Visible: //*[@id="languagesDropdown-top-bar"]/div
+.//div[@class='top-bar-list-icon language-flag country-gb language-en']
+//*[@id="languagesDropdown-top-bar"]/span
+PostCondition
+Close website
+
+004 Test Case LogIn with the valid credentials
+
+Preconditions:
+
+1.Open Site
+2. Check modal window is opened
+3. Click Close Button
+
+Steps to reproduce
+1.       Click on “Your account button”  //span[@class="icon icon-avatar"]
+2.       Select “LogIn” value from the drop down list
+3.       Check redirect to the Login Page//a[@href="/account/login" and @class="btn btn-primary account-menu-login-button"]
+4.       Enter Valid Login into an Email Address placeholder  login  //input[@id='loginMail']
+5.       Enter Valid Password into your password placeholder  //input[@id='loginPassword']
+6.       Click on Log In button //button[@type='submit' and contains (text(),'Log in')]
+7.       Check Log Out Button is Visible //div[@class='account-aside']//a[@href='/account/logout']
+
+PostConditions
+
+1.       Click on Log Out Button
+2.       Close site
+
+
+
+005 Test Case LogIn with  invalid credentials/Invalid Login
+
+Preconditions:
+
+1.Open Site
+2. Check modal window is opened
+3. Click Close Button
+
+Steps to reproduce
+
+1.       Click on “Your account button”  //span[@class="icon icon-avatar"]
+2.       Select “LogIn” value from the drop down list
+3.   Check redirect to the Login Page//a[@href="/account/login" and @class="btn btn-primary account-menu-login-button"]
+4.   Enter Inalid Login into an Email Address placeholder  login  //input[@id="loginMail"]
+5.   Enter Valid Password into your password placeholder  //input[@id="loginPassword"]
+6.   Click on Log In button //button[@type="submit" and contains (text(),"Log in")]
+7.   Check Log Out Button is Visible //div[@class="account-aside"]//a[@href="/account/logout"]
+
+PostConditions
+
+1.       Click on Log Out Button
+2.       Close site
+
+
+
+006 Test Case LogIn with  invalid credentials/Invalid Password
+
+Preconditions:
+
+1.Open Site
+2. Check modal window is opened
+3. Click Close Button
+
+Steps to reproduce
+1.   Click on “Your account button”  //span[@class="icon icon-avatar"]
+2.   Select “LogIn” value from the drop down list
+3.   Check redirect to the Login Page//a[@href="/account/login" and @class="btn btn-primary account-menu-login-button"]
+4.   Enter Valid Login into an Email Address placeholder  login  //input[@id="loginMail"]
+5.   Enter Invalid Password into your password placeholder  //input[@id="loginPassword"]
+6.   Click on Log In button //button[@type="submit" and contains (text(),"Log in")]
+7.   Check Log Out Button is Visible //div[@class="account-aside"]//a[@href="/account/logout"]
+
+PostConditions
+1.       Click on Log Out Button
+2.       Close site
+
+007 Test Case.
+The price for “ISTQB® Certified Tester Foundation Level 4.0 (CTFL) Exam” is displayed according to the country selected. Country: Ukraine, Currency USD, Price US$185.43
+
+Preconditions:
+1.      Choose country “Ukraine” from the Dropdown list : Select Country //*[@id="countrySelect"], Ukraine //*[@id="countrySelect"]/option[233]
+2.      Choose language “English” : Select Language //select[@id="languageSelect"]
+3.      //*[@id="language_value" and @value="2fbb5fe2e29a4d70aa5854ce7ce3e20b"]
+4.      Click button Enter: .//button[@onclick="saveUserOptions()"]
+5.      The header contains selected country “Ukraine” //*[@id="countrySelectTopBar"]/option[234]
+6.       The header contains “English” language element: //*[ @for="top-bar-196c219908424152995f50bfee79dba4" ]
+7.   	Currency is Dollar  //*[@id="currenciesDropdown-top-bar" and contains(text(),"$")]
+
+Steps to reproduce
+1.      Scroll until ISTQB element/block about the ISTQB information is visible //div[@data-cms-element-id="018f610f083a71a2abcb9c4c0d8dc5f1"]
+2.      Click on the button “Learn more”  //*[@id="tns2-item0"]/div/div/div[2]/a
+3.      Check is price is 185$ Price Ukraine .//p[@class="product-detail-price test" and contains(text(),"US$185.43") ]
+PostCondition
+Close website
+
+
+008. 	Test Case
+The price for “ISTQB® Certified Tester Foundation Level 4.0 (CTFL) Exam” is displayed according to the country selected. Country: France, Currency Euro, 285€
+
+Preconditions
+
+1.      Choose country “France” from the Dropdown list : Select Country //*[@id="countrySelect"], France //*[@id="countrySelect"]/option[76]
+2.      Choose language “French” : Select Language //select[@id="languageSelect"]
+//*[@id="language_value" and @value="e5c1db7f238549dc9d67023d4a2ff327"]
+3.      Click button Enter: .//button[@onclick="saveUserOptions()"]
+4.      Check Element Country “France” in the Header is visible: //*[@id="countrySelectTopBar"]/option[69]
+5.      Check element flag language “French” in the Header is Visible: //*[@id="languagesDropdown-top-bar"]/div
+8.   	Check currency euro in the header //*[@id="currenciesDropdown-top-bar" and contains(text(),"€")]
+
+Steps to reproduce
+1.      Scroll until ISTQB element/block about the ISTQB information is visible //div[@data-cms-element-id="018f610f083a71a2abcb9c4c0d8dc5f1"]
+2.      Click on the button “Learn more”  //*[@id="tns2-item0"]/div/div/div[2]/a
+3.      Check is price is 285€ Price France:  .//p[@class="product-detail-price test" and contains(text()," 285") ]
+
+PostCondition
+Close website
+
+5.Test Case. Add “ISTQB® Certified Tester Foundation Level 4.0 (CTFL) Exam” French Version to the cart
+
+Preconditions
+
+1.      Choose country “France” from the Dropdown list : Select Country //*[@id="countrySelect"], France //*[@id="countrySelect"]/option[76]
+2.      Choose language “French” : Select Language //select[@id="languageSelect"]
+//*[@id="language_value" and @value="e5c1db7f238549dc9d67023d4a2ff327"]
+3.      Click button Enter: .//button[@onclick="saveUserOptions()"]
+4.      Check Element Country “France” in the Header is visible: //*[@id="countrySelectTopBar"]/option[69]
+5.      Check element flag language “French” in the Header is Visible: //*[@id="languagesDropdown-top-bar"]/div
+6.   	Check currency euro in the header //*[@id="currenciesDropdown-top-bar" and contains(text(),"€")]
+
+
+Steps to reproduce
+1.      Scroll until ISTQB element/block about the ISTQB information is visible //div[@data-cms-element-id="018f610f083a71a2abcb9c4c0d8dc5f1"]
+2.      Click on the button “Learn more”  //*[@id="tns2-item0"]/div/div/div[2]/a
+3.      Check is price is 285€ Price France:  .//p[@class="product-detail-price test" and contains(text()," 285") ]
+4.   	Click on exam method “Remote Proctor” .//label[@title="Remote Proctor"]
+5.   Check element 	.//input[@id="susNoExamQuantity" and @type="number"]
+6.   Click on the button add to the cart //*[@id="productDetailPageBuyProductForm"]/div/div[3]/div/button
+7.      Check element is added to cart //*[@class="header-cart-total" and contains(text()," 285")]
+
+PostCondition
+Close website
+
