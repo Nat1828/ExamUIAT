@@ -15,6 +15,11 @@ public class ProfilePage extends ParentPage {
         super(webDriver);
     }
 
+    @Override
+    protected String getRelativeUrl() {
+        return "/account";
+    }
+
     public ProfilePage checkIsRedirectToProfilePage() {
         return this;
     }

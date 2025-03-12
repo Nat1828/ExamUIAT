@@ -30,8 +30,12 @@ public class HomePage extends ParentPage {
         super(webDriver);
     }
 
+    @Override
+    protected String getRelativeUrl() {
+        return "";
+    }
+
     public void openHomePage() {
-        String baseURL = "https://isqi.org";
         webDriver.get(baseURL);
         logger.info("Modal window was opened." + baseURL);
 

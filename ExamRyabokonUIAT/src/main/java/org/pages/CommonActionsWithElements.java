@@ -99,7 +99,7 @@ public class CommonActionsWithElements {
         try {
             webDriverWait10.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
-            logger.info(elementName + " Element was clicked");
+            logger.info(getElementName(webElement) + " Element was clicked");
         } catch (Exception e) {
             logger.error(" Cannot work with element " + elementName);
             printErrorAndStopTest(e);

@@ -29,6 +29,11 @@ public class ModalPage extends ParentPage {
         super(webDriver);
     }
 
+    @Override
+    protected String getRelativeUrl() {
+        return "";
+    }
+
     public void openModalWindow() {
         webDriver.get(baseURL);
         logger.info("Modal window was opened." + baseURL);
