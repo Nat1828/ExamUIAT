@@ -26,11 +26,11 @@ public class LoginPage extends ParentPage {
 
     @Override
     protected String getRelativeUrl() {
-        return "/login";
+        return "/account/login";
     }
 
     public LoginPage checkIsRedirectToLoginPage() {
-        //check current URL
+        checkURL();
         return this;
     }
 

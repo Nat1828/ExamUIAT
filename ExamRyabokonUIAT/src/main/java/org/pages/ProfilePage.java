@@ -21,6 +21,7 @@ public class ProfilePage extends ParentPage {
     }
 
     public ProfilePage checkIsRedirectToProfilePage() {
+        checkURL();
         return this;
     }
 

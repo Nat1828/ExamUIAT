@@ -32,7 +32,7 @@ public class HomePage extends ParentPage {
 
     @Override
     protected String getRelativeUrl() {
-        return "";
+        return "/";
     }
 
     public void openHomePage() {
@@ -42,6 +42,7 @@ public class HomePage extends ParentPage {
     }
 
     public HomePage checkIsRedirectToHomePage() {
+        checkURL();
         return this;
     }
 
