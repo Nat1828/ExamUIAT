@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.utils.ConfigProvider;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -106,6 +107,22 @@ public class CommonActionsWithElements {
         }
     }
 
+    protected void clickOnElementJs(WebElement webElement) {
+        String elementName = getElementName(webElement);
+        try {
+            webDriverWait10.until(ExpectedConditions.elementToBeClickable(webElement));
+            webElement.click();
+            logger.info(elementName + " Element was clicked");
+        } catch (Exception e) {
+            logger.warn("Normal click failed, trying JS click for " + elementName);
+            try {
+                ((org.openqa.selenium.JavascriptExecutor) webDriver).executeScript("arguments[0].click();", webElement);
+                logger.info(elementName + " Element was clicked using JS");
+            } catch (Exception jsEx) {
+                printErrorAndStopTest(jsEx);
+            }
+        }
+    }
     //isElementVisible method
 
     protected boolean isElementVisible(String locator) {
